@@ -10,11 +10,11 @@ class BookShelf extends React.Component {
         <h2 className="bookshelf-title">{ this.props.title }</h2>
         <div className="bookshelf-books">
           <ol className="books-grid">
-            {this.props.books.map((book) => (
-              <li>
+            {this.props.books.filter( book => book.shelf == this.props.shelf ).map((book, index) => (
+              <li key={index}>
                 <div className="book">
                   <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: 'url("{book.imageLinks.smallThumbnail}")' }}></div>
+                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${ book.imageLinks.smallThumbnail })` }}></div>
                     <div className="book-shelf-changer">
                       <select>
                         <option value="none" disabled>Move to...</option>
