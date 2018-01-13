@@ -13,7 +13,7 @@ class BookShelf extends React.Component {
         <div className="bookshelf-books">
           <ol className="books-grid">
             {this.props.books.filter( book => book.shelf === this.props.shelf ).map((book, index) => (
-              <Book updateBooksState={this.props.updateBooksState} key={ index } book={book} />
+              <Book key={index} updateBooksState={ this.props.updateBooksState } book={ book } />
             ))}
           </ol>
         </div>
@@ -23,7 +23,7 @@ class BookShelf extends React.Component {
 
   static propTypes = {
     updateBooksState: PropTypes.func.isRequired,
-    books: PropTypes.object.isRequired,
+    books: PropTypes.array.isRequired,
     title: PropTypes.string.isRequired,
     shelf: PropTypes.string.isRequired
   }

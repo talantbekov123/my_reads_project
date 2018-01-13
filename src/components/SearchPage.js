@@ -9,7 +9,7 @@ import {PropTypes} from 'prop-types'
 class SearchPage extends React.Component {
 
   state = {
-    query: "",
+    query: '',
     books: []
   };
 
@@ -30,7 +30,7 @@ class SearchPage extends React.Component {
 
   updateQuery = (event) => {
     const value = event.target.value.trim()
-    this.setState({query: value})
+    this.setState({ query: value })
     this.searchBooks(value)
   }
 
@@ -38,7 +38,7 @@ class SearchPage extends React.Component {
     return (
       <div className="search-books">
         <div className="search-books-bar">
-          <Link className="close-search" to = "/">
+          <Link className='close-search' to='/'>
             close
           </Link>
           <div className="search-books-input-wrapper">
@@ -48,7 +48,7 @@ class SearchPage extends React.Component {
         <div className="search-books-results">
           <ol className="books-grid">
             {this.state.books.map((book, index) => (
-              <Book updateBooksState={this.props.updateBooksState} key={ index } book={book} />
+              <Book updateBooksState={ this.props.updateBooksState } key={ index } book={ book } />
             ))}
           </ol>
         </div>

@@ -6,7 +6,7 @@ import {PropTypes} from 'prop-types'
 class Book extends React.Component {
 
   updateBook = (e, book) => {
-    var shelf = e.target.value
+    let shelf = e.target.value
     BooksAPI.update(book, shelf).then((elem) => {
       this.props.updateBooksState()
     })
@@ -20,7 +20,7 @@ class Book extends React.Component {
             <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${ this.props.book.imageLinks.smallThumbnail })` }}></div>
             <div className="book-shelf-changer">
               {/* Add ability change change shelfs, explore code of indian*/}
-              <select onChange={(e) => this.updateBook(e, this.props.book)} value={this.props.book.shelf}>
+              <select onChange={(e) => this.updateBook(e, this.props.book)} value={ this.props.book.shelf }>
                 <option value="none" disabled>Move to...</option>
                 <option value="currentlyReading">Currently Reading</option>
                 <option value="wantToRead">Want to Read</option>
@@ -37,8 +37,7 @@ class Book extends React.Component {
 
   static propTypes = {
     updateBooksState: PropTypes.func.isRequired,
-    book: PropTypes.object.isRequired,
-    key: PropTypes.string.isRequired
+    book: PropTypes.object.isRequired
   }
 }
 export default Book
