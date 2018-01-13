@@ -1,8 +1,9 @@
 import React from 'react'
 // import * as BooksAPI from './BooksAPI'
-import './Main.css'
+import '../Main.css'
 import { Link } from 'react-router-dom'
-import * as BooksAPI from './utils/BooksAPI'
+import * as BooksAPI from '../utils/BooksAPI'
+import Book from './Book';
 
 class SearchPage extends React.Component {
 
@@ -45,26 +46,8 @@ class SearchPage extends React.Component {
         </div>
         <div className="search-books-results">
           <ol className="books-grid">
-            {this.state.books.map((book) => (
-              <li key={ book.id }>
-                <div className="book">
-                  <div className="book-top">
-                    <div className="book-cover" style={{ width: 128, height: 192, backgroundImage: `url(${ book.imageLinks.smallThumbnail })` }}></div>
-                    <div className="book-shelf-changer">
-                      <select onChange={(event) => this.props.updateBook(event)}>
-                        <option value="none" disabled>Move to...</option>
-                        <option value="currentlyReading">Currently Reading</option>
-                        <option value="wantToRead">Want to Read</option>
-                        <option value="read">Read</option>
-                        <option value="none">None</option>
-                      </select>
-                    </div>
-                  </div>
-                  <div className="book-title">{ book.title }</div>
-                </div>
-                    <p onClick={() => this.props.updateBook()}> click </p>
-
-              </li>
+            {this.state.books.map((book, index) => (
+              <Book updateBooksState={this.props.updateBooksState} key={ index } book={book} />
             ))}
           </ol>
         </div>
