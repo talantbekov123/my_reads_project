@@ -2,6 +2,7 @@ import React from 'react'
 // import * as BooksAPI from './BooksAPI'
 import '../Main.css'
 import Book from './Book';
+import {PropTypes} from 'prop-types'
 
 class BookShelf extends React.Component {
 
@@ -18,6 +19,13 @@ class BookShelf extends React.Component {
         </div>
       </div>
     )
+  }
+
+  static propTypes = {
+    updateBooksState: PropTypes.func.isRequired,
+    books: PropTypes.object.isRequired,
+    title: PropTypes.string.isRequired,
+    shelf: PropTypes.string.isRequired
   }
 }
 export default BookShelf

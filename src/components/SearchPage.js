@@ -4,6 +4,7 @@ import '../Main.css'
 import { Link } from 'react-router-dom'
 import * as BooksAPI from '../utils/BooksAPI'
 import Book from './Book';
+import {PropTypes} from 'prop-types'
 
 class SearchPage extends React.Component {
 
@@ -53,6 +54,11 @@ class SearchPage extends React.Component {
         </div>
       </div>
     )
+  }
+
+  static propTypes = {
+    navigateToMain: PropTypes.func.isRequired,
+    updateBooksState: PropTypes.func.isRequired
   }
 }
 export default SearchPage

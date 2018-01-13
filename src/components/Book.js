@@ -1,6 +1,7 @@
 import React from 'react'
 import '../Main.css'
 import * as BooksAPI from '../utils/BooksAPI'
+import {PropTypes} from 'prop-types'
 
 class Book extends React.Component {
 
@@ -32,6 +33,12 @@ class Book extends React.Component {
         </div>
       </li>
     )
+  }
+
+  static propTypes = {
+    updateBooksState: PropTypes.func.isRequired,
+    book: PropTypes.object.isRequired,
+    key: PropTypes.string.isRequired
   }
 }
 export default Book
